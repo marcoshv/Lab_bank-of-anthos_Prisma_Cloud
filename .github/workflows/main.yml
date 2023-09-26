@@ -1,21 +1,32 @@
-name: mh_lab
+name: Prisma Cloud IaC Scan
 on:
-  push:
-  -branches:
-    - 'main'
+  pull_request:
+    branches:
+      - 'main'
+
 jobs:
-  scan:
+  kubernetes-scan:
     runs-on: ubuntu-latest
     strategy:
-      matrix:
-        python-version: [3.8]
+      fail-fast: false
+
     steps:
-      -name: Checkout repo
-      uses: actions/checkout@v3
-      -name: Run Bridgecrew
-      id: Bridgecrew
-      uses: bridgecrewio/bridgecrew-action@master
-      env:
-        PRISMA_API_URL: https://api2.prismacloud.io
-      with:
-        api-key: ${{ secrets.BC_API_KEY }}
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run Kubernetes Scan
+        id: Bridgecrew
+        uses: bridgecrewio/bridgecrew-action@master
+        env:
+          PRISMA_API_URL: https://api2.prismacloud.io
+        with:
+          api-key: ${{ secrets.BC_API_KEY }}
+          directory: "${{ github.workspace }}/k8s-manifests"
+          soft_fail: false
+          framework: kubernetes
+          output_format: cli,sarif
+          output_file_path: console,results.sarif
+          quiet: true
+          log_level: WARNING
+          skip_check: LOW,MEDIUM
+          check: CKV_K8S*
