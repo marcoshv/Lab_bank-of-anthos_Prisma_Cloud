@@ -2,7 +2,7 @@ name: mh_lab
 on:
   push:
   -branches:
-    - main
+    - 'main'
 jobs:
   scan:
     runs-on: ubuntu-latest
