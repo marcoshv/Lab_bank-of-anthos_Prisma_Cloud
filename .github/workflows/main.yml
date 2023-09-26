@@ -2,7 +2,7 @@ name: Lab-Q3
 on:
   push:
     branches:
-      - main
+      - development
 jobs:
   scan:
     runs-on: ubuntu-latest
