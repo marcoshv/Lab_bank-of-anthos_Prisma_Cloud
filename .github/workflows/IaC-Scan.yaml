@@ -18,9 +18,9 @@ jobs:
         id: Bridgecrew
         uses: bridgecrewio/bridgecrew-action@master
         env:
-          PRISMA_API_URL: https://api4.prismacloud.io
+          PRISMA_API_URL: https://api2.prismacloud.io
         with:
-          api-key: ${{ secrets.PC_API_KEY }}
+          api-key: ${{ secrets.BC_API_KEY }}
           directory: "${{ github.workspace }}/k8s-manifests"
           soft_fail: false
           framework: kubernetes
