@@ -36,7 +36,7 @@ jobs:
           # The path for the file output
           output_file_path: console,results.sarif
           # Display only failed checks if true
-          quiet: true
+          quiet: False
           # Set log level
           log_level: WARNING
           # Filter scan to run on all check but a specific check identifier(blacklist)
