@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - development
-    
+  
 jobs:
   kubernetes-scan:
     runs-on: ubuntu-latest
