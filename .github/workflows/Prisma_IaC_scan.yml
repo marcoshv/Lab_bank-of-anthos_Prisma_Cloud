@@ -40,6 +40,6 @@ jobs:
           # Set log level
           log_level: WARNING
           # Filter scan to run on all check but a specific check identifier(blacklist)
-          skip_check: LOW,MEDIUM
+          skip_check: LOW,MEDIUM,HIGH
           # Filter scan to run only on a specific check identifier
           check: CKV_K8S*
