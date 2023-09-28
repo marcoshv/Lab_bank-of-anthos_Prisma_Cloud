@@ -3,7 +3,7 @@ on:
   pull_request:
     branches:
       - development
-
+      
 jobs:
   kubernetes-scan:
     runs-on: ubuntu-latest
