@@ -28,7 +28,7 @@ jobs:
           # Root directory to scan
           directory: "${{ github.workspace }}/k8s-manifests"
           # If True runs checks without failing build
-          soft_fail: true
+          soft_fail: false
           # Run on a specific infrastructure
           framework: kubernetes
           # The format of the output - json - cli - sarif
